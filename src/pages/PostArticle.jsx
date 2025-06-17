@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 
 const PostArticle = () => {
   // Define the state for each form field with capitalized keys
@@ -61,6 +62,24 @@ const PostArticle = () => {
     e.preventDefault();
     console.log('Form submitted with data:', formData);
     // You can handle form submission, such as sending data to a server here
+    fetch('http://localhost:3000/articles', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('Data After adding the Listing', data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Added listing successfully',
+            icon: 'success',
+            draggable: true,
+          });
+        }
+      });
   };
 
   return (
