@@ -15,7 +15,8 @@ const router = createBrowserRouter([
   {
     path: 'Categories/:id',
     element: <Articles></Articles>,
-    loader: () => fetch('http://localhost:3000/articles'),
+    loader: () =>
+      fetch('https://knowledge-hub-server-gules.vercel.app/articles'),
   },
 
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
     element: <ArticleDetails></ArticleDetails>,
     loader: async ({ params }) => {
       const response = await fetch(
-        `http://localhost:3000/articles/${params.id}`
+        `https://knowledge-hub-server-gules.vercel.app/articles/${params.id}`
       );
       if (!response.ok) {
         throw new Error('Failed to fetch listings');

@@ -62,7 +62,7 @@ const PostArticle = () => {
     e.preventDefault();
     console.log('Form submitted with data:', formData);
     // You can handle form submission, such as sending data to a server here
-    fetch('http://localhost:3000/articles', {
+    fetch('https://knowledge-hub-server-gules.vercel.app/articles', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

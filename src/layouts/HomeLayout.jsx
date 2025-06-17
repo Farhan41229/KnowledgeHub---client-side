@@ -4,9 +4,9 @@ import Footer from '../components/Footer';
 import AuthContext from '../Auths/AuthContext';
 import Categories from '../pages/Categories';
 import { Outlet } from 'react-router';
-const CategoriesPromise = fetch('http://localhost:3000/categories').then(
-  (res) => res.json()
-);
+const CategoriesPromise = fetch(
+  'https://knowledge-hub-server-gules.vercel.app/categories'
+).then((res) => res.json());
 const HomeLayout = () => {
   const { UserLoading } = useContext(AuthContext);
   if (UserLoading)
