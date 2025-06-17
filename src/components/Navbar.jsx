@@ -22,7 +22,7 @@ const Navbar = () => {
       .then()
       .catch((err) => console.log(err));
   };
-  console.log(user);
+  // console.log(user);
   return (
     <div className="navbar bg-base-100 shadow-sm px-6">
       <div className="navbar-start">
