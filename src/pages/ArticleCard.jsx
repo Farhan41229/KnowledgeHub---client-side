@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const ArticleCard = ({ article }) => {
   return (
@@ -34,12 +35,12 @@ const ArticleCard = ({ article }) => {
       </div>
       {/* View Details Button */}
       <div className="px-6 py-4">
-        <a
-          href="#"
+        <Link
+          to={`/article/${article._id}`}
           className="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold transition duration-300 ease-in-out transform hover:bg-blue-600 hover:scale-105"
         >
           View Details
-        </a>
+        </Link>
       </div>
     </div>
   );

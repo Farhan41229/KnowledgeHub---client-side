@@ -5,6 +5,7 @@ import HomeLayout from '../layouts/HomeLayout';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Articles from '../pages/Articles';
+import ArticleDetails from '../pages/ArticleDetails';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -21,9 +22,23 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: '/register',
     element: <Register></Register>,
+  },
+  {
+    path: '/article/:id',
+    element: <ArticleDetails></ArticleDetails>,
+    loader: async ({ params }) => {
+      const response = await fetch(
+        `http://localhost:3000/articles/${params.id}`
+      );
+      if (!response.ok) {
+        throw new Error('Failed to fetch listings');
+      }
+      return response.json(); // Ensure this returns the data
+    },
   },
   {
     path: '/login',
