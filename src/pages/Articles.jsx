@@ -23,7 +23,7 @@ const Articles = () => {
     <div className="my-10">
       <h1 className="text-6xl text-center font-bold mb-2">ARTICLES</h1>
       <div className="divider"></div>
-      <div className="grid grid-cols-1 px-10 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 px-10 lg:grid-cols-3 gap-5">
         {Articles.map((article, index) => (
           <ArticleCard article={article} key={index}></ArticleCard>
         ))}

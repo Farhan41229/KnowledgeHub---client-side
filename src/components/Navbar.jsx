@@ -9,8 +9,13 @@ const links = (
       </NavLink>
     </li>
     <li>
-      <NavLink to={'/lisitngs'} className={'text-xl btn btn-ghost'}>
+      <NavLink to={`Categories/0`} className={'text-xl btn btn-ghost'}>
         All
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to={`/postarticle`} className={'text-xl btn btn-ghost'}>
+        Post Article
       </NavLink>
     </li>
   </>

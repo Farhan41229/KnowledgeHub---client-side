@@ -6,26 +6,25 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import Articles from '../pages/Articles';
 import ArticleDetails from '../pages/ArticleDetails';
+import PostArticle from '../pages/PostArticle';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout></HomeLayout>,
-    children: [
-      {
-        index: true,
-        element: <h1>The Home Element</h1>,
-      },
-      {
-        path: 'Categories/:id',
-        element: <Articles></Articles>,
-        loader: () => fetch('http://localhost:3000/articles'),
-      },
-    ],
+  },
+  {
+    path: 'Categories/:id',
+    element: <Articles></Articles>,
+    loader: () => fetch('http://localhost:3000/articles'),
   },
 
   {
     path: '/register',
     element: <Register></Register>,
+  },
+  {
+    path: '/postarticle',
+    element: <PostArticle></PostArticle>,
   },
   {
     path: '/article/:id',
