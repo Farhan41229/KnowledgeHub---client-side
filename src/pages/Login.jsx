@@ -1,20 +1,6 @@
-import React, { useContext } from 'react';
-import AuthContext from '../Auths/AuthContext';
-import { Link } from 'react-router';
+import React from 'react';
 
-const Register = () => {
-  const { CreateUser } = useContext(AuthContext);
-  const HandleRegister = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(name, email, password);
-    CreateUser(email, password)
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
-  };
+const Login = () => {
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -34,11 +20,7 @@ const Register = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create an account
             </h1>
-            <form
-              onSubmit={HandleRegister}
-              className="space-y-4 md:space-y-6"
-              action="#"
-            >
+            <form className="space-y-4 md:space-y-6" action="#">
               {/* Name */}
               <div>
                 <label
@@ -123,12 +105,12 @@ const Register = () => {
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?
-                <Link
-                  to={'/login'}
+                <a
+                  href="#"
                   className="font-medium text-[#2563eb] hover:underline dark:text-primary-500"
                 >
                   Login here
-                </Link>
+                </a>
               </p>
             </form>
           </div>
@@ -138,4 +120,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
