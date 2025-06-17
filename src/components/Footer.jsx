@@ -1,9 +1,10 @@
 import React from 'react';
+import AuthContext from '../Auths/AuthContext';
 
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10 items-center">
-      <aside className='flex flex-col gap-5'>
+      <aside className="flex flex-col gap-5">
         <svg
           width="50"
           height="50"
@@ -66,7 +67,7 @@ const Footer = () => {
           Copyright © {new Date().getFullYear()} - All right reserved by ACME
           Industries Ltd
         </p>
-      </aside>  
+      </aside>
     </footer>
   );
 };
