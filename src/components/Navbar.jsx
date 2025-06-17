@@ -16,7 +16,12 @@ const links = (
   </>
 );
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, SignOutUser } = useContext(AuthContext);
+  const Handlesignout = () => {
+    SignOutUser()
+      .then()
+      .catch((err) => console.log(err));
+  };
   console.log(user);
   return (
     <div className="navbar bg-base-100 shadow-sm px-6">
@@ -60,7 +65,9 @@ const Navbar = () => {
             Register
           </Link>
         ) : (
-          <Link className="btn">SignOut</Link>
+          <Link onClick={Handlesignout} className="btn">
+            SignOut
+          </Link>
         )}
       </div>
     </div>

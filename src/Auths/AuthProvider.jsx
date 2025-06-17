@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { auth } from '../firebase/firebase.init';
 
@@ -19,6 +20,11 @@ const AuthProvider = ({ children }) => {
   const SignInUser = (email, password) => {
     setUserLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const SignOutUser = () => {
+    setUserLoading(true);
+    return signOut(auth);
   };
 
   //   On Auth State Change
@@ -41,6 +47,7 @@ const AuthProvider = ({ children }) => {
     SignInUser,
     user,
     CreateUser,
+    SignOutUser,
   };
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;
