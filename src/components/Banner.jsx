@@ -33,7 +33,10 @@ const Banner = () => {
       </Carousel>
       <div className="divider"></div>
       <div className="flex justify-center items-center">
-        <Link className="text-center text-2xl p-5 rounded-full bg-orange-500 lg:w-[500px] mx-auto hover:bg-orange-300 hover:cursor-pointer">
+        <Link
+          to={'/Categories/0'}
+          className="text-center text-2xl p-5 rounded-full bg-orange-500 lg:w-[500px] mx-auto hover:bg-orange-300 hover:cursor-pointer"
+        >
           Explore Articles
         </Link>
       </div>

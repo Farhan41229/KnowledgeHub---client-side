@@ -8,6 +8,8 @@ import Articles from '../pages/Articles';
 import ArticleDetails from '../pages/ArticleDetails';
 import PostArticle from '../pages/PostArticle';
 import PrivateRoute from '../PrivateRoute';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -15,14 +17,26 @@ const router = createBrowserRouter([
   },
   {
     path: 'Categories/:id',
-    element: <Articles></Articles>,
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <Articles></Articles>
+        <Footer></Footer>
+      </div>
+    ),
     loader: () =>
       fetch('https://knowledge-hub-server-gules.vercel.app/articles'),
   },
 
   {
     path: '/register',
-    element: <Register></Register>,
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <Register></Register>
+        <Footer></Footer>
+      </div>
+    ),
   },
   {
     path: '/postarticle',
@@ -47,7 +61,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login></Login>,
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <Login></Login>
+        <Footer></Footer>
+      </div>
+    ),
   },
 ]);
 

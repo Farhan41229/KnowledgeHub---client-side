@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import AuthContext from '../Auths/AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const { SignInUser } = useContext(AuthContext);
@@ -11,8 +12,23 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
     SignInUser(email, password)
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          title: 'Successfully Logged in',
+          icon: 'success',
+          draggable: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `Something went wrong!, ${err}`,
+          footer: '<a href="#">Why do I have this issue?</a>',
+        });
+      });
   };
 
   return (
