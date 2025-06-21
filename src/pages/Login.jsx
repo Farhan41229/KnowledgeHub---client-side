@@ -4,7 +4,7 @@ import AuthContext from '../Auths/AuthContext';
 import Swal from 'sweetalert2';
 
 const Login = () => {
-  const { SignInUser } = useContext(AuthContext);
+  const { SignInUser, setUser } = useContext(AuthContext);
   const HandleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +14,8 @@ const Login = () => {
     SignInUser(email, password)
       .then((res) => {
         console.log(res.user);
+        const user = res.user;
+        setUser(user);
         Swal.fire({
           title: 'Successfully Logged in',
           icon: 'success',

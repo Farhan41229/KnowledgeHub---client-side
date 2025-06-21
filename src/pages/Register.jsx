@@ -8,7 +8,7 @@ const verifyPassword = (pwd) => {
   return pwd.length >= 6 && hasUpper && hasLower;
 };
 const Register = () => {
-  const { CreateUser } = useContext(AuthContext);
+  const { CreateUser, setUser } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState('');
   const HandleRegister = (e) => {
     e.preventDefault();
@@ -16,11 +16,49 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    const photoUrl = form.photourl.value;
+    const dbuser = {
+      email,
+      name,
+      photoUrl,
+    };
+    console.log(name, email, password, photoUrl);
     if (verifyPassword(password)) {
       CreateUser(email, password)
         .then((res) => {
           console.log(res.user);
+          const user = res.user;
+          setUser(user);
+          // Add the User to MongoDB
+          fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dbuser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log('Data after adding the user', data);
+
+              // Set the MongoDB user data in the state
+              // setDBuser(data); // Use the MongoDB data returned from the server
+
+              Swal.fire({
+                title: 'User Registered Successfully',
+                icon: 'success',
+                draggable: true,
+              });
+            })
+            .catch((error) => {
+              console.log('Error adding MongoDB user:', error);
+              Swal.fire({
+                title: 'Error adding user',
+                icon: 'error',
+                text: error.message,
+                draggable: true,
+              });
+            });
           Swal.fire({
             title: 'Successfully Registered',
             icon: 'success',

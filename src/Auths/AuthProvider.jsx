@@ -48,6 +48,7 @@ const AuthProvider = ({ children }) => {
     user,
     CreateUser,
     SignOutUser,
+    setUser,
   };
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;
