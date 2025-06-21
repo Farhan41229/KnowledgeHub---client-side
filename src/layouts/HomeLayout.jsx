@@ -19,9 +19,9 @@ const HomeLayout = () => {
       </div>
     );
   return (
-    <div className="px-10">
-      <header>
-        <Navbar></Navbar>
+    <div>
+      <Navbar></Navbar>
+      <header className="px-10">
         <Banner></Banner>
         <Services></Services>
         <ReviewSliders></ReviewSliders>

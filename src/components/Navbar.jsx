@@ -39,7 +39,7 @@ const Navbar = () => {
   };
   // console.log(user);
   return (
-    <div className="navbar bg-base-100 shadow-sm px-6">
+    <div className="navbar bg-base-100 shadow-sm px-14">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
