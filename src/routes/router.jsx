@@ -7,6 +7,7 @@ import Login from '../pages/Login';
 import Articles from '../pages/Articles';
 import ArticleDetails from '../pages/ArticleDetails';
 import PostArticle from '../pages/PostArticle';
+import PrivateRoute from '../PrivateRoute';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/postarticle',
-    element: <PostArticle></PostArticle>,
+    element: (
+      <PrivateRoute>
+        <PostArticle></PostArticle>
+      </PrivateRoute>
+    ),
   },
   {
     path: '/article/:id',

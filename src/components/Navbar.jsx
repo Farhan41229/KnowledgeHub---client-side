@@ -10,12 +10,22 @@ const links = (
     </li>
     <li>
       <NavLink to={`Categories/0`} className={'text-xl btn btn-ghost'}>
-        All
+        All Articles
       </NavLink>
     </li>
     <li>
       <NavLink to={`/postarticle`} className={'text-xl btn btn-ghost'}>
         Post Article
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to={`/myarticles`} className={'text-xl btn btn-ghost'}>
+        My Articles
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to={`/myarticles`} className={'text-xl btn btn-ghost'}>
+        About Us
       </NavLink>
     </li>
   </>
@@ -51,7 +61,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-x-5"
           >
             {links}
           </ul>
@@ -62,12 +72,12 @@ const Navbar = () => {
         </p>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1 space-x-5">{links}</ul>
       </div>
       <div className="navbar-end">
         {user == null ? (
-          <Link to={'/register'} className="btn">
-            Register
+          <Link to={'/login'} className="btn">
+            Login
           </Link>
         ) : (
           <Link onClick={Handlesignout} className="btn">
