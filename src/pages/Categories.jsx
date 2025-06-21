@@ -15,7 +15,7 @@ const Categories = ({ CategoriesPromise }) => {
         <div className="grid grid-cols-1">
           {categories.map((category) => (
             <Link
-              to={`Categories/${category.Id}`}
+              to={`Categories/${category.name}`}
               key={category.Id}
               className="p-6 bg-orange-200 hover:cursor-pointer shadow-2xl border-b hover:bg-orange-500 transition-all ease-in-out duration-500"
             >

@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     element: <HomeLayout></HomeLayout>,
   },
   {
-    path: 'Categories/:id',
+    path: 'Categories/:name',
     element: (
       <div>
         <Navbar></Navbar>

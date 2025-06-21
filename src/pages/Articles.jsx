@@ -4,21 +4,23 @@ import ArticleCard from './ArticleCard';
 
 const Articles = () => {
   const [Articles, SetArticles] = useState([]);
-  const { id } = useParams();
+  const { name } = useParams();
   //   console.log(id);
   const data = useLoaderData();
+  console.log(name);
+  console.log(data);
   useEffect(() => {
-    if (id == 0) {
+    if (name == 'All') {
       SetArticles(data);
       console.log(data);
     } else {
       const FilteredProducts = data.filter(
-        (article) => article.CategoryId == id
+        (article) => article.category == name
       );
       SetArticles(FilteredProducts);
       console.log(FilteredProducts);
     }
-  }, [data, id]);
+  }, [data, name]);
   return (
     <div className="my-10">
       <h1 className="text-6xl text-center font-bold mb-2">ARTICLES</h1>
