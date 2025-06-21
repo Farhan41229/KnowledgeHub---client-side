@@ -10,6 +10,7 @@ import PostArticle from '../pages/PostArticle';
 import PrivateRoute from '../PrivateRoute';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import MyArticles from '../pages/MyArticles';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -50,8 +51,27 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/myarticles',
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <PrivateRoute>
+          <MyArticles></MyArticles>
+        </PrivateRoute>
+        <Footer></Footer>
+      </div>
+    ),
+    loader: () => fetch('http://localhost:3000/articles'),
+  },
+  {
     path: '/article/:id',
-    element: <ArticleDetails></ArticleDetails>,
+    element: (
+      <div>
+        <Navbar></Navbar>
+        <ArticleDetails></ArticleDetails>
+        <Footer></Footer>
+      </div>
+    ),
     loader: async ({ params }) => {
       const response = await fetch(
         `http://localhost:3000/articles/${params.id}`

@@ -10,7 +10,7 @@ const links = (
       </NavLink>
     </li>
     <li>
-      <NavLink to={`Categories/0`} className={'text-xl btn btn-ghost'}>
+      <NavLink to={`Categories/All`} className={'text-xl btn btn-ghost'}>
         All Articles
       </NavLink>
     </li>
@@ -25,7 +25,7 @@ const links = (
       </NavLink>
     </li>
     <li>
-      <NavLink to={`/myarticles`} className={'text-xl btn btn-ghost'}>
+      <NavLink to={`/404`} className={'text-xl btn btn-ghost'}>
         About Us
       </NavLink>
     </li>
