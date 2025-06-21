@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from 'react-router'; // or 'react-router-dom' if you use that
 
 const ArticleDetails = () => {
   const [loading, setLoading] = useState(true);
-  const data = useLoaderData();
-  console.log(data);
+  const data = useLoaderData(); // article document
 
   useEffect(() => {
-    if (data != null) {
-      setLoading(false);
-    }
+    if (data) setLoading(false);
   }, [data]);
 
   if (loading) {
@@ -22,36 +19,47 @@ const ArticleDetails = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
+      {/* Title, category, date */}
       <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">{data.Title}</h1>
+        <h1 className="text-3xl font-bold text-gray-900">{data.title}</h1>
         <p className="text-sm text-gray-500">
-          Published on {new Date(data.Date).toLocaleDateString()} | Category:{' '}
-          {data.Category}
+          Published&nbsp;
+          {new Date(data.date).toLocaleDateString()} &nbsp;|&nbsp;
+          Category:&nbsp;
+          {data.category}
         </p>
       </div>
-      <img
-        className="w-full h-64 object-cover mb-6"
-        src={data['Thumbnail image']}
-        alt={data.Title}
-      />
+
+      {/* Thumbnail image */}
+      {data.thumbnail_image && (
+        <img
+          className="w-full h-64 object-cover mb-6 rounded-md"
+          src={data.thumbnail_image}
+          alt={data.title}
+        />
+      )}
+
+      {/* Content */}
       <div className="text-lg text-gray-700 mb-6">
-        <p>{data.Content}</p>
+        <p>{data.content}</p>
       </div>
+
+      {/* Tags */}
       <div className="flex flex-wrap mb-6">
-        <span className="text-sm text-gray-600 font-semibold mr-4">Tags:</span>
-        {data.Tags.map((tag, index) => (
+        <span className="text-sm font-semibold text-gray-600 mr-4">Tags:</span>
+        {data.tags.map((tag, i) => (
           <span
-            key={index}
+            key={i}
             className="inline-block bg-blue-200 text-blue-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
           >
             {tag}
           </span>
         ))}
       </div>
+
+      {/* Author info */}
       <div className="text-sm text-gray-500">
-        <p>
-          Written by: {data.Userinfo.Username} ({data.Userinfo.Email})
-        </p>
+        Written by: {data.author_name} ({data.author_email})
       </div>
     </div>
   );

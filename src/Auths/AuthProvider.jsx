@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       const url = `http://localhost:3000/users/${currentUser?.email}`;
-      console.log(`The url is: ${url}`);
+      // console.log(`The url is: ${url}`);
       setUser(currentUser);
       if (currentUser != null) {
         try {
@@ -41,14 +41,14 @@ const AuthProvider = ({ children }) => {
           const response = await fetch(url);
           const currentDBuser = await response.json();
           setDBuser(currentDBuser); // Set the MongoDB user data
-          console.log('User in the OnAuth MongoDB: ', currentDBuser);
+          // console.log('User in the OnAuth MongoDB: ', currentDBuser);
           // console.log(currentDBuser); // You can remove this after testing
         } catch (error) {
           console.error('Error fetching MongoDB user:', error);
         }
       }
       setUserLoading(false);
-      console.log('User in the OnAuth: ', currentUser);
+      // console.log('User in the OnAuth: ', currentUser);
     });
 
     return () => {

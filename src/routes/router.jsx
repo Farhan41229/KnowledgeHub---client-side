@@ -40,9 +40,13 @@ const router = createBrowserRouter([
   {
     path: '/postarticle',
     element: (
-      <PrivateRoute>
-        <PostArticle></PostArticle>
-      </PrivateRoute>
+      <div>
+        <Navbar></Navbar>
+        <PrivateRoute>
+          <PostArticle></PostArticle>
+        </PrivateRoute>
+        <Footer></Footer>
+      </div>
     ),
   },
   {
