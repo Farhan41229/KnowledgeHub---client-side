@@ -11,6 +11,7 @@ import PrivateRoute from '../PrivateRoute';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import MyArticles from '../pages/MyArticles';
+import ErrorComponent from '../components/ErrorComponent';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       }
       return response.json(); // Ensure this returns the data
     },
+  },
+  {
+    path: '*',
+    Component: ErrorComponent,
   },
   {
     path: '/login',
