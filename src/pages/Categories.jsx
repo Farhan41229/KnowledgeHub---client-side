@@ -9,7 +9,7 @@ const Categories = ({ CategoriesPromise }) => {
     setCategories(data);
   }, [data]);
   return (
-    <div className="px-10 my-10">
+    <div className=" my-10">
       <ul className="space-y-0">
         <h1 className="text-3xl p-4 bg-orange-400">Categories</h1>
         <div className="grid grid-cols-1">

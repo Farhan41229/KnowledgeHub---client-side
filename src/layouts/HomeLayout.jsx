@@ -5,6 +5,7 @@ import AuthContext from '../Auths/AuthContext';
 import Categories from '../pages/Categories';
 import { Outlet } from 'react-router';
 import Banner from '../components/Banner';
+import Services from '../components/Services';
 const CategoriesPromise = fetch(
   'https://knowledge-hub-server-gules.vercel.app/categories'
 ).then((res) => res.json());
@@ -17,10 +18,11 @@ const HomeLayout = () => {
       </div>
     );
   return (
-    <div>
+    <div className='px-10'>
       <header>
         <Navbar></Navbar>
-        <Banner></Banner> 
+        <Banner></Banner>
+        <Services></Services>
       </header>
       <main className="">
         <aside className="left-aside">
