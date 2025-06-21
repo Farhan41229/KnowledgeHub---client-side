@@ -39,7 +39,7 @@ const Navbar = () => {
   };
   // console.log(user);
   return (
-    <div className="navbar bg-base-100 shadow-sm px-14">
+    <div className="navbar bg-base-100 shadow-sm lg:px-14">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <p className="btn btn-ghost text-2xl font-bold">
+        <p className="btn btn-ghost text-xl lg:text-2xl font-bold">
           <span className="text-orange-500">Knowledge</span>
           <span>Hub</span>
         </p>
