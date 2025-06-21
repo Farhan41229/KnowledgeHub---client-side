@@ -10,6 +10,7 @@ import { auth } from '../firebase/firebase.init';
 
 const AuthProvider = ({ children }) => {
   const [UserLoading, setUserLoading] = useState(true);
+  const [DBuser, setDBuser] = useState(null);
   const [user, setUser] = useState(null);
 
   const CreateUser = (email, password) => {
@@ -30,8 +31,22 @@ const AuthProvider = ({ children }) => {
   //   On Auth State Change
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      const url = `http://localhost:3000/users/${currentUser?.email}`;
+      console.log(`The url is: ${url}`);
       setUser(currentUser);
+      if (currentUser != null) {
+        try {
+          // Fetch the MongoDB user using the Firebase user email
+          const response = await fetch(url);
+          const currentDBuser = await response.json();
+          setDBuser(currentDBuser); // Set the MongoDB user data
+          console.log('User in the OnAuth MongoDB: ', currentDBuser);
+          // console.log(currentDBuser); // You can remove this after testing
+        } catch (error) {
+          console.error('Error fetching MongoDB user:', error);
+        }
+      }
       setUserLoading(false);
       console.log('User in the OnAuth: ', currentUser);
     });
@@ -42,6 +57,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authInfo = {
+    DBuser,
     UserLoading,
     setUserLoading,
     SignInUser,
@@ -51,7 +67,9 @@ const AuthProvider = ({ children }) => {
     setUser,
   };
 
-  return <AuthContext value={authInfo}>{children}</AuthContext>;
+  return (
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
