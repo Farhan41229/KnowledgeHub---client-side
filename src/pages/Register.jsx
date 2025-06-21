@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AuthContext from '../Auths/AuthContext';
 import { Link } from 'react-router';
-
+import Swal from 'sweetalert2';
+const verifyPassword = (pwd) => {
+  const hasUpper = /[A-Z]/.test(pwd);
+  const hasLower = /[a-z]/.test(pwd);
+  return pwd.length >= 6 && hasUpper && hasLower;
+};
 const Register = () => {
   const { CreateUser } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState('');
   const HandleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,9 +17,37 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, email, password);
-    CreateUser(email, password)
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+    if (verifyPassword(password)) {
+      CreateUser(email, password)
+        .then((res) => {
+          console.log(res.user);
+          Swal.fire({
+            title: 'Successfully Registered',
+            icon: 'success',
+            draggable: true,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          setErrorMessage('');
+          setErrorMessage(err);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `Something went wrong!, ${errorMessage}`,
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
+        });
+    } else {
+      const msg =
+        'Password must be at least 6 characters long and include both uppercase and lowercase letters.';
+      setErrorMessage(msg);
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Password',
+        text: msg,
+      });
+    }
   };
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
