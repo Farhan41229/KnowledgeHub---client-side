@@ -7,18 +7,18 @@ const Articles = () => {
   const { name } = useParams();
   //   console.log(id);
   const data = useLoaderData();
-  console.log(name);
-  console.log(data);
+  // console.log(name);
+  // console.log(data);
   useEffect(() => {
     if (name == 'All') {
       SetArticles(data);
-      console.log(data);
+      // console.log(data);
     } else {
       const FilteredProducts = data.filter(
         (article) => article.category == name
       );
       SetArticles(FilteredProducts);
-      console.log(FilteredProducts);
+      // console.log(FilteredProducts);
     }
   }, [data, name]);
   return (

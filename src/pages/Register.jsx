@@ -22,15 +22,15 @@ const Register = () => {
       name,
       photoUrl,
     };
-    console.log(name, email, password, photoUrl);
+    // console.log(name, email, password, photoUrl);
     if (verifyPassword(password)) {
       CreateUser(email, password)
         .then((res) => {
-          console.log(res.user);
+          // console.log(res.user);
           const user = res.user;
           setUser(user);
           // Add the User to MongoDB
-          fetch('http://localhost:3000/users', {
+          fetch('https://knowledge-hub-server-gules.vercel.app/users', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Register = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log('Data after adding the user', data);
+              // console.log('Data after adding the user', data);
 
               // Set the MongoDB user data in the state
               // setDBuser(data); // Use the MongoDB data returned from the server

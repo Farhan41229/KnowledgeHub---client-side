@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-      const url = `http://localhost:3000/users/${currentUser?.email}`;
+      const url = `https://knowledge-hub-server-gules.vercel.app/users/${currentUser?.email}`;
       // console.log(`The url is: ${url}`);
       setUser(currentUser);
       if (currentUser != null) {

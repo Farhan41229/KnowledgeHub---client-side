@@ -58,11 +58,14 @@ const PostArticle = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/articles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        'https://knowledge-hub-server-gules.vercel.app/articles',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
       const data = await res.json();
       if (data.insertedId || data.acknowledged) {
         Swal.fire({ title: 'Article posted!', icon: 'success' });

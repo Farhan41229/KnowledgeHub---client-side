@@ -17,7 +17,7 @@ const MyArticles = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Delete Listing from MongoDB
-        fetch(`http://localhost:3000/articles/${id}`, {
+        fetch(`https://knowledge-hub-server-gules.vercel.app/articles/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

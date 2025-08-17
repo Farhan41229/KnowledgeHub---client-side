@@ -10,10 +10,10 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     SignInUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         const user = res.user;
         setUser(user);
         Swal.fire({

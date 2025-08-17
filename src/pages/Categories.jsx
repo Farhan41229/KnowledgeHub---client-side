@@ -5,7 +5,7 @@ const Categories = ({ CategoriesPromise }) => {
   const [categories, setCategories] = useState([]);
   const data = use(CategoriesPromise);
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
     setCategories(data);
   }, [data]);
   return (
