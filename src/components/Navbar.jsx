@@ -9,7 +9,7 @@ const links = (
       <NavLink
         to={'/'}
         className={
-          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white border border-4 border-orange-500 rounded-3xl'
+          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white  border-4 border-orange-500 rounded-3xl'
         }
       >
         Home
@@ -19,7 +19,7 @@ const links = (
       <NavLink
         to={`/Categories/All`}
         className={
-          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white border border-4 border-orange-500 rounded-3xl'
+          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white  border-4 border-orange-500 rounded-3xl'
         }
       >
         All Articles
@@ -29,7 +29,7 @@ const links = (
       <NavLink
         to={`/postarticle`}
         className={
-          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white border border-4 border-orange-500 rounded-3xl'
+          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white  border-4 border-orange-500 rounded-3xl'
         }
       >
         Post Article
@@ -39,7 +39,7 @@ const links = (
       <NavLink
         to={`/myarticles`}
         className={
-          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white border border-4 border-orange-500 rounded-3xl'
+          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white  border-4 border-orange-500 rounded-3xl'
         }
       >
         My Articles
@@ -49,7 +49,7 @@ const links = (
       <NavLink
         to={`/404`}
         className={
-          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white border border-4 border-orange-500 rounded-3xl'
+          'text-xl text-orange-900 hover:bg-orange-600 hover:text-white  border-4 border-orange-500 rounded-3xl'
         }
       >
         About Us
