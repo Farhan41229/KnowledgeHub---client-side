@@ -9,6 +9,7 @@ import Services from '../components/Services';
 import ReviewSliders from '../components/ReviewSliders';
 import UseAxiosSecure from '../components/AxiosSecure';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import FeaturedArticles from '../components/FeaturedArticles';
 const CategoriesPromise = fetch(
   'https://knowledge-hub-server-gules.vercel.app/categories'
 ).then((res) => res.json());
@@ -35,7 +36,7 @@ const HomeLayout = () => {
       </div>
     );
   }
-  console.log(articles);
+  // console.log(articles);
 
   return (
     <div>
@@ -44,6 +45,7 @@ const HomeLayout = () => {
         <Banner></Banner>
         <Services></Services>
         <ReviewSliders></ReviewSliders>
+        <FeaturedArticles articles={articles}></FeaturedArticles>
       </header>
       <main className="">
         <aside className="left-aside">
