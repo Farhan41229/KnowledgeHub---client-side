@@ -21,13 +21,13 @@ const Banner = () => {
         showArrows={true}
         interval={1000}
       >
-        <div className="px-10">
+        <div className="">
           <img className="" src={Banner1} />
         </div>
-        <div className="px-10">
+        <div className="">
           <img src={Banner2} />
         </div>
-        <div className="px-10">
+        <div className="">
           <img src={Banner3} />
         </div>
       </Carousel>
