@@ -13,7 +13,7 @@ const FeaturedArticles = ({ articles }) => {
           <Link to={`/article/${article._id}`} key={article._id}>
             <div
               key={article._id}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg  hover:-translate-y-3 cursor-pointer     transition-all ease-in-out duration-300"
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg  hover:-translate-y-3 cursor-pointer transition-all ease-in-out duration-300"
             >
               <img
                 src={article.thumbnail_image}
