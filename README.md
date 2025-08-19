@@ -11,7 +11,7 @@ A full-stack knowledge sharing platform built with React and Node.js, featuring 
 
 KnowledgeHub is a comprehensive platform where users can share knowledge through articles across various categories including Technology, Education, Health & Wellness, Science, Business, Entertainment, and Sports. The platform features user authentication, article creation and management, category-based filtering, and a modern responsive interface.
 
-### Core Features
+### Core Featusadawsdres
 
 - 🔐 **User Authentication**: Secure login/registration using Firebase Authentication
 - ✍️ **Article Management**: Create, read, update, and delete articles
